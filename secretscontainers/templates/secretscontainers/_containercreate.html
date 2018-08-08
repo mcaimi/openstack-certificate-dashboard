@@ -1,0 +1,22 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-header %}
+<h2>Create Secrets Container</h2>
+
+{% endblock %}
+
+{% block modal-body-right %}
+    <h3>{% trans "Container Help" %}</h3>
+    <p>{% trans "Secrets Container are a construct that you can use to store and organize Secrets by some criteria. Secrets can be Passwords, Certificates or even RSA Public/private Keypairs." %}</p>
+
+    <script type="text/javascript">
+        if (typeof horizon.user !== 'undefined') {
+            horizon.user.init();
+        } else {
+            addHorizonLoadEvent(function () {
+                horizon.user.init();
+            });
+        }
+    </script>
+{% endblock %}

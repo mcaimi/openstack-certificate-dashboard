@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Key and Secret Management" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_domain_page_header.html" with title=page_title %}
+{% endblock page_header %}
+
+{% block main %}
+    {{ table.render }}
+    <p/>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Container Management Dashboard</h3>
+      </div>
+      <div class="panel-body">This page lets you manage your containers inside Openstack's Key Manger.<p/>
+              Containers can hold secrets such as passphrases, X509 Certificates and public/private keypairs.     
+      </div>
+    </div>
+    <p/>
+ 
+{% endblock %}
