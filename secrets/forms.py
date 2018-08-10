@@ -74,12 +74,12 @@ class X509SecretsCreateForm(forms.SelfHandlingForm):
         private_key = data.get('private_key')
 
         try:
-            new_cert_secret = barbican_bridge.create_x509secret(request, name=secretname+"_crt", payload=certificate, algorithm=cypher_suite, bit_length=int(bitlength), mode=mode, secret_type=secret_type)
+            new_cert_secret = barbican_bridge.create_x509secret(request, name=secretname+"_crt", payload=certificate, algorithm=cipher_suite, bit_length=int(bitlength), mode=mode, secret_type=secret_type)
             messages.success(request, _('[KEYMANAGER]: Certificate Create Request queued for execution.'))
             new_cert_secret.store()
             messages.success(request, _('[KEYMANAGER]: Certificate Successfully Stored'))
-            
-            new_key_secret = barbican_bridge.create_x509secret(request, name=secretname+"_key", payload=private_key, algorithm=algo, bit_length=int(bitlength), mode=mode, secret_type=secret_type)
+
+            new_key_secret = barbican_bridge.create_x509secret(request, name=secretname+"_key", payload=private_key, algorithm=cipher_suite, bit_length=int(bitlength), mode=mode, secret_type=secret_type)
             messages.success(request, _('[KEYMANAGER]: Private Key Create Request queued for execution.'))
             new_key_secret.store()
             messages.success(request, _('[KEYMANAGER]: Private Key Successfully Stored'))
